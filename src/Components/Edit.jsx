@@ -9,10 +9,8 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import { TextField } from '@mui/material';
-
-
-
-
+import { CgOverflow } from 'react-icons/cg';
+import { MdCancel } from 'react-icons/md';
 
 const style = {
   position: 'absolute',
@@ -20,18 +18,20 @@ const style = {
   left: '50%',
   transform: 'translate(-50%, -50%)',
   width: 700,
+  maxHeight: "80vh",
+  overflow: 'auto',
   bgcolor: 'background.paper',
   border: '2px solid #000',
   boxShadow: 24,
   p: 4,
 };
 function Edit() {
-   const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-   return (
+  return (
     <div>
-      <Button style={{color : '#6B5546'}} className='btn' onClick={handleOpen} ><FaRegEdit  className='me-1'/>Edit</Button>
+      <Button style={{ color: '#6B5546' }} className='btn' onClick={handleOpen} ><FaRegEdit className='me-1' />Edit</Button>
       <Modal
         open={open}
         onClose={handleClose}
@@ -44,42 +44,61 @@ function Edit() {
           </Typography>
           <Box id="modal-modal-description" sx={{ mt: 2 }}>
             <div>
-                        <h1>Personal Details</h1>
-                        <div className='row p-3'>
-                          <TextField id="standard-basic-name" label="Full Name" variant="standard" />
-                          <TextField id="standard-basic-location" label="Location" variant="standard" />
-                          <FormControl variant="standard">
-                            <InputLabel id="demo-simple-select-label">Choose Job Title</InputLabel>
-                            <Select
-                              labelId="demo-simple-select-label"
-                              id="demo-simple-select"
-                              label="Job"
-                            >
-                              <MenuItem value={"job"}>Job</MenuItem>
-            
-            
-                            </Select>
-                          </FormControl>
-            
-                        </div>
-                      </div>
-                       <div>
-                                  <h1>Contact Details</h1>
-                                  <div className='row p-3'>
-                                    <TextField id="standard-basic-email" label="Email" variant="standard" />
-                                    <TextField id="standard-basic-contact" label="Contact Number" variant="standard" />
-                                    <TextField id="standard-basic-linkedin" label="Linkedin Link" variant="standard" />
-                                    <TextField id="standard-basi-githubc" label="Github Link" variant="standard" />
-                                  </div>
-                                </div>
-                        <div>
-                                    <h1>Educational Details</h1>
-                                    <div className='row p-3'>
-                                      <TextField id="standard-basic-degree" label="Bchelor's Degree" variant="standard" />
-                                      <TextField id="standard-basic-college" label="University/College Name" variant="standard" />
-                                      <TextField id="standard-basic-yearofgrad" label="Year of Graduation" variant="standard" />
-                                    </div>
-                                  </div>
+              <h3>Personal Details</h3>
+              <div className='row p-3'>
+                <TextField id="standard-basic-name" label="Full Name" variant="standard" />
+                <TextField id="standard-basic-location" label="Location" variant="standard" />
+                <FormControl variant="standard">
+                  <InputLabel id="demo-simple-select-label">Choose Job Title</InputLabel>
+                  <Select
+                    labelId="demo-simple-select-label"
+                    id="demo-simple-select"
+                    label="Job"
+                  >
+                    <MenuItem value={"job"}>Job</MenuItem>
+
+
+                  </Select>
+                </FormControl>
+
+              </div>
+            </div>
+            <div>
+              <h3>Contact Details</h3>
+              <div className='row p-3'>
+                <TextField id="standard-basic-email" label="Email" variant="standard" />
+                <TextField id="standard-basic-contact" label="Contact Number" variant="standard" />
+                <TextField id="standard-basic-linkedin" label="Linkedin Link" variant="standard" />
+                <TextField id="standard-basi-githubc" label="Github Link" variant="standard" />
+              </div>
+            </div>
+            <div>
+              <h3>Educational Details</h3>
+              <div className='row p-3'>
+                <TextField id="standard-basic-degree" label="Bachelor's Degree" variant="standard" />
+                <TextField id="standard-basic-college" label="University/College Name" variant="standard" />
+                <TextField id="standard-basic-yearofgrad" label="Year of Graduation" variant="standard" />
+              </div>
+            </div>
+
+            <div className='mt-3'>
+              <h3>Skills</h3>
+              <div className='d-flex p-3'>
+                <input type="text" placeholder='Add Skill' className='form-control' />
+                <button className='btn'>Add</button>
+              </div>
+              <h5>Added Skills : </h5>
+              <div className='p-3 d-flex justify-content-between flex-wrap'>
+                <Button variant="contained" style={{ backgroundColor: '#6B5546' }} className='text-light'>Skills <MdCancel className='ms-3' /></Button>
+              </div>
+              <div>
+                <h3>Summary</h3>
+                <div className='row p-3'>
+                  <TextField id='summary' label = 'summary' variant = 'standard'></TextField>
+                </div>
+              </div>
+            </div>
+            <button style={{ backgroundColor: '#374740' }}  className='btn text-light'>Update  CV</button>
 
           </Box>
         </Box>
