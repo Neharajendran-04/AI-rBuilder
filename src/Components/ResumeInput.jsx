@@ -5,11 +5,17 @@ import Step from '@mui/material/Step';
 import StepLabel from '@mui/material/StepLabel';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
+import { TextField } from '@mui/material';
+
 
 const steps = ['Basic Informations', 'Contact Details', 'Educational Details', 'Review & Submit'];
 
-function ResumeInput() { 
- const [activeStep, setActiveStep] = React.useState(0);
+function ResumeInput() {
+  const [activeStep, setActiveStep] = React.useState(0);
 
 
   const handleNext = () => {
@@ -23,34 +29,62 @@ function ResumeInput() {
   const renderFormCount = (stepCount) => {
     switch (stepCount) {
       case 0:
-        return(
+        return (
           <div>
             <h1>Personal Details</h1>
+            <div className='row p-3'>
+              <TextField id="standard-basic-name" label="Full Name" variant="standard" />
+              <TextField id="standard-basic-location" label="Location" variant="standard" />
+              <FormControl variant="standard">
+                <InputLabel id="demo-simple-select-label">Choose Job Title</InputLabel>
+                <Select
+                  labelId="demo-simple-select-label"
+                  id="demo-simple-select"
+                  label="Job"
+                >
+                  <MenuItem value={"job"}>Job</MenuItem>
+
+
+                </Select>
+              </FormControl>
+
+            </div>
           </div>
         )
         break;
       case 1:
-        return(
+        return (
           <div>
             <h1>Contact Details</h1>
+            <div className='row p-3'>
+              <TextField id="standard-basic-email" label="Email" variant="standard" />
+              <TextField id="standard-basic-contact" label="Contact Number" variant="standard" />
+              <TextField id="standard-basic-linkedin" label="Linkedin Link" variant="standard" />
+              <TextField id="standard-basi-githubc" label="Github Link" variant="standard" />
+            </div>
           </div>
         )
         break;
       case 2:
-        return(
+        return (
           <div>
             <h1>Educational Details</h1>
+            <div className='row p-3'>
+              <TextField id="standard-basic-degree" label="Bchelor's Degree" variant="standard" />
+              <TextField id="standard-basic-college" label="University/College Name" variant="standard" />
+              <TextField id="standard-basic-yearofgrad" label="Year of Graduation" variant="standard" />
+            </div>
           </div>
         )
         break;
       case 3:
-        return(
+        return (
           <div>
             <p>Our AI will generate Skills & Summary according to your job role. Click the <b>Generate AI Skill & Summary</b> button to Proceed.</p>
           </div>
         )
         break;
-    
+
       default:
         break;
     }
@@ -63,7 +97,7 @@ function ResumeInput() {
         {steps.map((label, index) => {
           const stepProps = {};
           const labelProps = {};
-          
+
           return (
             <Step key={label} {...stepProps}>
               <StepLabel {...labelProps}>{label}</StepLabel>
@@ -101,7 +135,7 @@ function ResumeInput() {
               Back
             </Button>
             <Box sx={{ flex: '1 1 auto' }} />
-              {activeStep === steps.length - 1 ?
+            {activeStep === steps.length - 1 ?
               <Button>GENERATE AI AKILLS AND SUMMARY</Button> :
               <Button onClick={handleNext}>NEXT</Button>}
           </Box>
