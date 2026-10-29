@@ -11,7 +11,7 @@ function Download() {
       </div>
       <div className='row my-5'>
           <div className="col-lg-4">
-            <div style={{height : '350px'}} className="rounded shadow p-3">
+            <div style={{height : '350px'}} className = "rounded shadow p-3">
             <h6>Reviewed at : Time stamp</h6>
             <div className='mt-4 text-center'>
              <Link to={'/resume/:id'}> <img className='w-50' src="https://template.canva.com/EAGIzZzlHCg/3/0/1131w-krkiJPv9338.jpg" alt="resume" /></Link>
