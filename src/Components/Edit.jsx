@@ -91,7 +91,7 @@ function Edit({resumeDetails, setResumeDetails}) {
               <TextField value={resumeDetails?.location} onChange={e => setResumeDetails({...resumeDetails, location : e.target.value})} id="standard-basic-location" label="Location" variant="standard" />
               <FormControl variant="standard">
                 <InputLabel id="demo-simple-select-label">Choose Job Title</InputLabel>
-                <Select   onChange={e => setResumeDetails({...resumeDetails, job : e.target.value})} 
+                <Select  value={resumeDetails?.job}  onChange={e => setResumeDetails({...resumeDetails, job : e.target.value})} 
                   labelId="demo-simple-select-label"
                   id="demo-simple-select"
                   label="Job"
